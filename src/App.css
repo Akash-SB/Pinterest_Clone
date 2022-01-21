@@ -1,0 +1,540 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.App {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+  width: 100%;
+}
+
+.dark-mode img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.header_wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+/* logo styling */
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_wrapper a {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.logo_wrapper a:hover {
+  background-color: #efefef;
+  border-radius: 50%;
+}
+
+.logo_wrapper img {
+  width: 32px;
+  height: 32px;
+}
+
+/* left nav styling */
+.left_navigation {
+  display: flex;
+  align-items: center;
+}
+
+.nav_items a {
+  font-weight: 600;
+  columns: black;
+  border-radius: 24px;
+  padding: 10px 16px;
+}
+
+.nav_items a:not(.active):hover {
+  background-color: #efefef;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+/* search bar styling */
+.searchBar_wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #efefef;
+  border-radius: 24px;
+  height: 48px;
+  margin: 0px 8px;
+  padding: 0px 16px;
+  color: #767676;
+}
+
+.searchBar_wrapper form,
+.searchBar_wrapper input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0px 5px;
+}
+
+.searchBar_wrapper input:focus-visible {
+  outline: none;
+}
+
+/* Right nav styling */
+.right_navigation {
+  display: flex;
+  align-items: center;
+}
+
+.right_nav_item a,
+.right_nav_item span {
+  color: #767676;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.right_nav_item a:hover,
+.right_nav_item span:hover {
+  background-color: #efefef;
+}
+
+.toggle {
+  height: 30px;
+  width: 50px;
+  border-radius: 20px;
+  margin: auto;
+  background-image: linear-gradient(aqua, skyblue);
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle.night {
+  background-image: linear-gradient(midnightblue, rebeccapurple);
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.notch {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: yellow;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  box-shadow: 0 0 5px yellow;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.notch > .crater {
+  background: burlywood;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.night .crater {
+  opacity: 0.4;
+}
+
+.crater:first-child {
+  left: 1px;
+  top: 3px;
+  height: 5px;
+  width: 12px;
+  transform: rotate(-45deg);
+}
+
+.crater:last-child {
+  right: 1px;
+  top: 6px;
+  height: 5px;
+  width: 12px;
+  transform: rotate(45deg);
+}
+
+.night > .notch {
+  background: whitesmoke;
+  box-shadow: 0 0 5px whitesmoke;
+  transform: translate(20px, 0);
+}
+
+@media (max-width: 600px) {
+  .mobile_menu {
+    display: none;
+  }
+}
+
+/* pinboard styling */
+.pins_wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding-top: 80px;
+  background-color: #ffffff;
+}
+
+@media (min-width: 1764px) and (max-width: 2015px) {
+  .pins_container {
+    width: 1764px;
+    column-count: 7;
+  }
+}
+
+@media (min-width: 1512px) and (max-width: 1763px) {
+  .pins_container {
+    width: 1512px;
+    column-count: 6;
+  }
+}
+
+@media (min-width: 1260px) and (max-width: 1511px) {
+  .pins_container {
+    width: 1260px;
+    column-count: 5;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1259px) {
+  .pins_container {
+    width: 1024px;
+    column-count: 4;
+  }
+}
+
+@media (min-width: 756px) and (max-width: 1023px) {
+  .pins_container {
+    width: 756px;
+    column-count: 3;
+  }
+}
+
+@media (min-width: 504px) and (max-width: 755px) {
+  .pins_container {
+    width: 504px;
+    column-count: 2;
+  }
+}
+
+.pins_container {
+  margin: 0 auto;
+  column-gap: 15px;
+  padding: 0px 15px;
+  overflow: hidden;
+  padding-bottom: 0 !important;
+  font-size: 0;
+}
+
+.pin_card {
+  border-radius: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.pin_card img {
+  border-radius: 15px;
+  width: 100%;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.overlay_container {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  cursor: zoom-in;
+  justify-content: space-between;
+}
+
+.pin_card:hover .overlay_container {
+  transition: all 1 ease-in;
+  z-index: 1;
+}
+
+.top_row,
+.bottom_row {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.pin_description a {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.bottom_row a {
+  font-size: 20px;
+  color: #000000;
+  display: flex;
+  align-content: center;
+}
+
+.user_name span {
+  display: block;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social_media {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.pin_description,
+.pin_likes,
+.user_name {
+  text-transform: capitalize;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000000;
+  padding: 4px 10px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.insta_user_name,
+.twitter_user_name {
+  margin: 0px 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000000;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.pin_likes {
+  display: flex;
+  align-content: center;
+}
+
+.heart_icon {
+  margin: 0px 3px;
+  color: rgb(240, 61, 61);
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* loading screen styling */
+.loader_wraper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader_container p {
+  font-size: 30px;
+}
+
+.loading_icon div {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* single pin page styling */
+.single_pin {
+  padding-top: 90px;
+  padding-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.pin_board {
+  width: 80%;
+  display: flex;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px 5px #efefef;
+}
+
+@media (max-width: 768px) {
+  .pin_board {
+    flex-direction: column;
+  }
+}
+
+.pin_board .image_container span {
+  height: 100%;
+}
+
+.pin_board .image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description_Container,
+.image_container {
+  flex: 1;
+}
+
+.description_Container {
+  padding: 20px;
+}
+
+.top_row {
+  display: flex;
+  align-items: center;
+}
+
+.right_navigation_utility {
+  display: flex;
+  align-items: center;
+}
+
+.left_navigation_utility {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.left_navigation_utility a {
+  margin: 0px 10px;
+}
+
+.right_navigation_utility .pin_likes {
+  background-color: red;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.right_navigation_utility .username {
+  margin-right: 15px;
+}
+
+.pin_likes svg {
+  margin-right: 5px;
+}
+
+.main_description {
+  padding: 20px;
+}
+
+.main_description a {
+  text-decoration: underline;
+}
+
+.pin_discription {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.pin_alt_discription {
+  text-transform: capitalize;
+}
+
+.comment_div {
+  padding: 20px;
+}
+
+.comment_div h2 {
+  font-weight: 600;
+}
+
+.comment_form {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user_profile {
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.comment_text {
+  flex: 1;
+}
+
+.comment_text input {
+  width: 90%;
+  border-radius: 20px;
+  padding: 20px 10px;
+  border: 2px solid #e1e1e1;
+}
+
+.more_pins_container {
+  background-color: #ffffff;
+}
+
+.more_pins_container .pins_wrapper {
+  padding-top: 20px;
+}
+
+.more_pins {
+  text-align: center;
+  font-weight: 600;
+  font-size: 22px;
+}
